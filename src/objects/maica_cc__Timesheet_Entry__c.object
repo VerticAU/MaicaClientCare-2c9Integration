@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Allowance_Type__c</fullName>
+        <label>Allowance Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>tc9_et__Allowance_Types</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Break_1_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Break_1_End__c - Break_1_Start__c) / (1000 * 60)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Break 1 Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Break_1_End__c</fullName>
+        <label>Break 1 End</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Break_1_Start__c</fullName>
+        <label>Break 1 Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Break_2_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Break_2_End__c - Break_2_Start__c) / (1000 * 60)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Break 2 Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Break_2_End__c</fullName>
+        <label>Break 2 End</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Break_2_Start__c</fullName>
+        <label>Break 2 Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Merge_Processed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Merge Processed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Merged_Timesheet_Entry__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Merged Timesheet Entry</label>
+        <referenceTo>maica_cc__Timesheet_Entry__c</referenceTo>
+        <relationshipLabel>Timesheet Entries</relationshipLabel>
+        <relationshipName>Source_Timesheet_Entries</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sync_Failure_Details__c</fullName>
+        <label>Sync Failure Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TC9_Sync_Status__c</fullName>
+        <label>2C9 Sync Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Merge Processed</fullName>
+                    <default>false</default>
+                    <label>Merge Processed</label>
+                </value>
+                <value>
+                    <fullName>Merge Failed</fullName>
+                    <default>false</default>
+                    <label>Merge Failed</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Timesheet_Entry_2C9__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Timesheet Entry 2C9</label>
+        <referenceTo>tc9_et__Timesheet_Entry__c</referenceTo>
+        <relationshipLabel>Maica Timesheet Entries</relationshipLabel>
+        <relationshipName>Maica_Timesheet_Entries</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>

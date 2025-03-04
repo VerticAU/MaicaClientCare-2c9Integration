@@ -1,0 +1,34 @@
+.THIS .slds-card_title-with-helptext .slds-form-element__icon {
+    padding-top: 0;
+}
+
+.THIS .slds-card_header-no-flex .slds-card__header-title {
+    display: inherit;
+}
+
+.THIS .card-without-spaces {
+    border-top: none;
+    border-bottom: none;
+}
+
+.THIS .card-without-spaces .slds-card__header.slds-grid{
+    padding: 0;
+    margin: 0;
+}
+
+.THIS .card-without-spaces .slds-card__header.slds-grid{
+    padding: 0;
+    margin: 0;
+}
+
+.THIS .card-without-spaces .slds-card__body {
+    margin: 0;
+}
+
+.THIS .slds-card {
+    position: inherit;
+}
+
+.THIS .position-inherit {
+    position: inherit;
+}

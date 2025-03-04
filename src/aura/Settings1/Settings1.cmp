@@ -1,0 +1,13 @@
+<aura:component description="Settings1" implements="force:appHostable" access="public">
+    <aura:attribute name="isSystemAvailable" type="Boolean" default="{!false}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <lightning:card title="Settings 2c9" class="slds-card_boundary">
+        <lightning:tabset aura:id="tabset" variant="vertical" onselect="{!c.handleTabSelect}">
+            <lightning:tab label="Settings 2c9" id="syncManagement">
+                <c:Settings2c9/>
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card>
+</aura:component>

@@ -16,7 +16,7 @@ public without sharing class Settings2c9MetaProc extends MetadataProcessor {
     }
 
     private void init() {
-        maica_cc__Setting__c setting = Tc9Service.tc9;
+        maica_cc__Setting__c setting = Tc9Service.tc9Setting;
         this.response.getMapper().mapFromSObject('setting', setting);
 
         List<Employment_Type_Mapping__c> employmentTypeMappings = [

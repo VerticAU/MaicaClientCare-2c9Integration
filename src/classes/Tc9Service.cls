@@ -21,12 +21,12 @@ public class Tc9Service {
         private set;
     }
 
-    public static maica_cc__Setting__c tc9 {
+    public static maica_cc__Setting__c tc9Setting {
         get {
-            if (tc9 == null) {
-                tc9 = settingMap.get(TC9_SETTING);
+            if (tc9Setting == null) {
+                tc9Setting = settingMap.get(TC9_SETTING);
             }
-            return (tc9 == null ? new maica_cc__Setting__c(maica_cc__API_Name__c = Tc9Service.TC9_SETTING) : tc9);
+            return (tc9Setting == null ? new maica_cc__Setting__c(maica_cc__API_Name__c = Tc9Service.TC9_SETTING) : tc9Setting);
         }
         private set;
     }

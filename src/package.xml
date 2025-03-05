@@ -60,19 +60,29 @@
         <members>maica_cc__Setting__c.KMs_Pay_Code_ID__c</members>
         <members>maica_cc__Setting__c.Merge_Threshold__c</members>
         <members>maica_cc__Setting__c.Sleepover_Pay_Code_ID__c</members>
+        <members>maica_cc__Timesheet_Entry__c.Batch__c</members>
+        <members>maica_cc__Timesheet_Entry__c.Merge_Target_Timesheet_Entry__c</members>
+        <members>maica_cc__Timesheet_Entry__c.Timesheet_Entry_2C9__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>Settings_2c9</members>
+        <members>Batch__c</members>
         <name>CustomTab</name>
     </types>
     <types>
         <members>Employment_Type_Mapping__c-Employment Type Mapping Layout</members>
+        <members>Batch__c-Batch Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>Employment_Type_Mapping__c</members>
+        <members>Batch__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Batch__c.Sync_to_2c9</members>
+        <name>QuickAction</name>
     </types>
     <version>62.0</version>
 </Package>

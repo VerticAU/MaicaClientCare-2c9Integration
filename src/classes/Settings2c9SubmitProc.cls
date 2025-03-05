@@ -9,7 +9,7 @@ public without sharing class Settings2c9SubmitProc extends AbstractProcessor {
     }
 
     private void doSubmit() {
-        maica_cc__Setting__c setting = Tc9Service.tc9;
+        maica_cc__Setting__c setting = Tc9Service.tc9Setting;
         this.request.getMapper().mapToSObject('setting', setting);
         upsert setting;
 

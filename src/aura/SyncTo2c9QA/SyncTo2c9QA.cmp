@@ -1,0 +1,137 @@
+<aura:component description="SyncTo2c9QA" implements="force:lightningQuickActionWithoutHeader,force:appHostable" extends="c:aura_Base">
+    <!-- Attribute Overrides -->
+    <aura:set attribute="processor" value="SyncTo2c9QAMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    <!-- Libraries -->
+    <c:aura_Utils context="{!this}"/>
+    <c:aura_ModalService aura:id="modalService"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <!-- Attributes -->
+    <aura:attribute name="today" type="Date"/>
+    <aura:attribute name="currentStep" type="String" default="generateBatch"/>
+
+
+    <!-- Content -->
+    <c:aura_QuickActionModal aura:id="modal"
+                             title="Sync to 2c9"
+                             widthPercentage="60"
+                             maxWidthRem="100"
+                             minWidthRem="40"
+                             refreshOnCancel="{!true}"
+                             heightPX="800">
+
+        <lightning:progressIndicator currentStep="{!v.currentStep}" variant="base" type="path">
+            <aura:iteration items="{!v.meta.dto.steps}" var="step">
+                <lightning:progressStep label="{!step.label}" value="{!step.value}"/>
+            </aura:iteration>
+        </lightning:progressIndicator>
+
+        <div class="slds-m-around_small" style="min-height: 500px;" aura:id="syncTo2c9">
+            <c:aura_ErrorMessages aura:id="errors"/>
+
+            <aura:if isTrue="{!v.currentStep == 'generateBatch'}">
+                <c:aura_ScopedNotification>
+                    Select the date range for the batch to be generated below.
+                </c:aura_ScopedNotification>
+
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning:input type="date"
+                                         label="Start Date"
+                                         value="{!v.meta.dto.batch.Start_Date__c}"
+                                         disabled="{!v.isBusy}"
+                                         required="{!true}"
+                        />
+                    </div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning:input type="date"
+                                         label="End Date"
+                                         value="{!v.meta.dto.batch.End_Date__c}"
+                                         disabled="{!v.isBusy}"
+                                         required="{!true}"
+                        />
+                    </div>
+                </div>
+
+                <c:aura_ScopedNotification>
+                    If you would like to include all records in the batch earlier than Start Date, check the box below.
+                </c:aura_ScopedNotification>
+
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning:input type="checkbox"
+                                         label="Include All"
+                                         disabled="{!v.isBusy}"
+                                         checked="{!v.meta.dto.batch.Include_All__c}"
+                        />
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'mergeProcess'}">
+                mergeProcess
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'breakProcess'}">
+                breakProcess
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'syncProcess'}">
+                syncProcess
+            </aura:if>
+        </div>
+
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!not(equals(v.currentStep, 'generateBatch'))}">
+                <lightning:button label="Previous"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handlePrevious}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+            <aura:if isTrue="{!equals(v.currentStep, 'generateBatch')}">
+                <lightning:button label="Next"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleGenerateBatch}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+            <aura:if isTrue="{!equals(v.currentStep, 'mergeProcess')}">
+                <lightning:button label="Process Merge"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleMergeProcess}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+
+            <aura:if isTrue="{!equals(v.currentStep, 'breakProcess')}">
+                <lightning:button label="Process Break"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleBreakProcess}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+
+            <aura:if isTrue="{!and(not(equals(v.currentStep, 'syncProcess')), not(equals(v.currentStep, 'generateBatch')))}">
+                <lightning:button label="Next"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleNext}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+        </aura:set>
+    </c:aura_QuickActionModal>
+
+</aura:component>

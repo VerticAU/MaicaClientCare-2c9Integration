@@ -1,9 +1,10 @@
-public without sharing class SyncTo2c9QAMetaProc extends MetadataProcessor {
+public without sharing class BatchSyncTo2c9QAMetaProc extends MetadataProcessor {
 
     public override Response process(Request request) {
         this.request = request == null ? new MetadataProcessor.MetadataRequest() : (MetadataProcessor.MetadataRequest) request;
 
         this.request.fields = new Set<SObjectField>{
+                maica_cc__Setting__c.Break_Processor_Mode__c
         };
 
         super.process(this.request);
@@ -24,22 +25,22 @@ public without sharing class SyncTo2c9QAMetaProc extends MetadataProcessor {
         this.response.put('batch', batchVar);
 
         maica_cc__Setting__c setting = Tc9Service.tc9Setting;
-        Boolean isMergeEnabled = setting.Is_Merge_Processor_Enabled__c == true;
+        this.response.put('setting', setting);
 
         List<Map<String, String>> steps = new List<Map<String, String>>();
         steps.add(new Map<String, String>{
                 'value' => 'generateBatch',
                 'label' => 'Generate Batch'
         });
-        if(isMergeEnabled){
+        if(setting.Is_Merge_Processor_Enabled__c == true){
             steps.add(new Map<String, String>{
                     'value' => 'mergeProcess',
-                    'label' => 'Process Merge'
+                    'label' => 'Merge Process'
             });
         }
         steps.add(new Map<String, String>{
                 'value' => 'breakProcess',
-                'label' => 'Process Break'
+                'label' => 'Break Process'
         });
         steps.add(new Map<String, String>{
                 'value' => 'syncProcess',

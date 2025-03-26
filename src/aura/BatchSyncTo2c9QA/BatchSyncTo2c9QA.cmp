@@ -1,0 +1,271 @@
+<aura:component description="BatchSyncTo2c9QA" implements="force:lightningQuickActionWithoutHeader,force:appHostable" extends="c:aura_Base">
+    <!-- Attribute Overrides -->
+    <aura:set attribute="processor" value="BatchSyncTo2c9QAMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    <!-- Libraries -->
+    <c:aura_Utils context="{!this}"/>
+    <c:aura_ModalService aura:id="modalService"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <!-- Attributes -->
+    <aura:attribute name="currentStep" type="String" default="generateBatch"/>
+
+    <!-- Content -->
+    <c:aura_QuickActionModal aura:id="modal"
+                             title="Sync to 2c9"
+                             widthPercentage="60"
+                             maxWidthRem="100"
+                             minWidthRem="40"
+                             refreshOnCancel="{!true}"
+                             heightPX="800">
+
+        <lightning:progressIndicator currentStep="{!v.currentStep}" variant="base" type="path">
+            <aura:iteration items="{!v.meta.dto.steps}" var="step">
+                <lightning:progressStep label="{!step.label}" value="{!step.value}"/>
+            </aura:iteration>
+        </lightning:progressIndicator>
+
+        <div class="slds-m-around_small" style="height: 580px;" aura:id="syncTo2c9">
+            <c:aura_ErrorMessages aura:id="errors"/>
+
+            <aura:if isTrue="{!v.currentStep == 'generateBatch'}">
+                <lightning:card title="Generate Batch" class="slds-card_boundary">
+                    <div class="slds-m-horizontal_small">
+                        <c:aura_ScopedNotification>
+                            Select the date range for the batch to be generated below. Then click 'Next' button to generate batch.
+                        </c:aura_ScopedNotification>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning:input type="date"
+                                                 label="Start Date"
+                                                 value="{!v.meta.dto.batch.Start_Date__c}"
+                                                 disabled="{!v.isBusy}"
+                                                 required="{!true}"
+                                />
+                            </div>
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning:input type="date"
+                                                 label="End Date"
+                                                 value="{!v.meta.dto.batch.End_Date__c}"
+                                                 disabled="{!v.isBusy}"
+                                                 required="{!true}"
+                                />
+                            </div>
+                        </div>
+
+                        <c:aura_ScopedNotification>
+                            If you would like to include all records in the batch earlier than Start Date, check the box below.
+                        </c:aura_ScopedNotification>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning:input type="checkbox"
+                                                 label="Include All"
+                                                 disabled="{!v.isBusy}"
+                                                 checked="{!v.meta.dto.batch.Include_All__c}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </lightning:card>
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'mergeProcess'}">
+                <lightning:card title="Merge Timesheet Entries Process" class="slds-card_boundary">
+                    <div class="slds-m-horizontal_small">
+                        <c:aura_ScopedNotification>
+                            You can configure the merge threshold in Settings tab.
+                        </c:aura_ScopedNotification>
+
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-12 slds-m-bottom_small">
+                                <lightning:input label="Merge Threshold (mins)"
+                                                 type="number"
+                                                 min="0"
+                                                 step="1"
+                                                 value="{!v.meta.dto.setting.Merge_Threshold__c}"
+                                                 required="{!true}"
+                                                 disabled="{!true}"
+                                />
+                            </div>
+                        </div>
+
+                        <c:aura_BatchProgress aura:id="mergeProcessor"
+                                              response="{!v.meta.mergeResponse}"
+                                              job="{!v.meta.mergeJob}"
+                                              wrapTextInLogs="{!true}"
+                                              jobId="{!v.meta.mergeResponse.dto.jobId}"
+                                              totalErrors="{!v.meta.mergeTotalErrors}"
+                                              onComplete="{!c.handleMergeComplete}">
+
+                            <aura:set attribute="initial">
+                                <c:aura_ScopedNotification>
+                                    Click the button below to start the merge process.
+                                </c:aura_ScopedNotification>
+                                <lightning:button label="Process Merge" variant="brand" onclick="{!c.handleMerge}" disabled="{!v.isBusy}"/>
+                            </aura:set>
+
+                            <aura:set attribute="prePending">
+                                <p>
+                                    <lightning:icon iconName="utility:sync" class="slds-show_inline" size="small"/>
+                                    Processing Timesheet Entry merge request... Please wait a few moments and do not navigate away from this window.
+                                </p>
+                            </aura:set>
+
+                            <aura:set attribute="preSuccess">
+                                <p>
+                                    <aura:if isTrue="{!v.meta.mergeTotalErrors}">
+                                        <lightning:icon iconName="utility:info" variant="warning" class="slds-show_inline" size="small"/>
+                                        Processing Timesheet Entry merge request.... Completed with errors!
+                                        <aura:set attribute="else">
+                                            <lightning:icon iconName="utility:success" variant="success" class="slds-show_inline" size="small"/>
+                                            Processing Timesheet Entry merge request... Completed.
+                                        </aura:set>
+                                    </aura:if>
+                                </p>
+                            </aura:set>
+                        </c:aura_BatchProgress>
+                    </div>
+                </lightning:card>
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'breakProcess'}">
+                <lightning:card title="Break Timesheet Entries Process" class="slds-card_boundary">
+                    <div class="slds-m-horizontal_small">
+                        <aura:if isTrue="{!equals(v.meta.dto.setting.Is_Merge_Processor_Enabled__c, true)}">
+                            <c:aura_ScopedNotification>
+                                You can configure the break processor mode in Settings tab.
+                            </c:aura_ScopedNotification>
+
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_3-of-12 slds-m-bottom_small">
+                                    <c:lwcSelect label="Break Processor Mode"
+                                                 value="{!v.meta.dto.setting.Break_Processor_Mode__c}"
+                                                 placeholder="Select a Break Processor Mode"
+                                                 options="{!v.meta.selectOptions.breakProcessorModeOptions}"
+                                                 required="{!true}"
+                                                 disabled="{!true}"
+                                    />
+                                </div>
+                            </div>
+                        </aura:if>
+
+                        <c:aura_BatchProgress aura:id="breakProcessor"
+                                              response="{!v.meta.breakResponse}"
+                                              job="{!v.meta.breakJob}"
+                                              wrapTextInLogs="{!true}"
+                                              jobId="{!v.meta.breakResponse.dto.jobId}"
+                                              totalErrors="{!v.meta.breakTotalErrors}"
+                                              onComplete="{!c.handleBreakComplete}">
+
+                            <aura:set attribute="initial">
+                                <c:aura_ScopedNotification>
+                                    Click the button below to start the break process.
+                                </c:aura_ScopedNotification>
+                                <lightning:button label="Process Break" variant="brand" onclick="{!c.handleBreak}" disabled="{!v.isBusy}"/>
+                            </aura:set>
+
+                            <aura:set attribute="prePending">
+                                <p>
+                                    <lightning:icon iconName="utility:sync" class="slds-show_inline" size="small"/>
+                                    Processing Timesheet Entry break request... Please wait a few moments and do not navigate away from this window.
+                                </p>
+                            </aura:set>
+
+                            <aura:set attribute="preSuccess">
+                                <p>
+                                    <aura:if isTrue="{!v.meta.breakTotalErrors}">
+                                        <lightning:icon iconName="utility:info" variant="warning" class="slds-show_inline" size="small"/>
+                                        Processing Timesheet Entry break request.... Completed with errors!
+                                        <aura:set attribute="else">
+                                            <lightning:icon iconName="utility:success" variant="success" class="slds-show_inline" size="small"/>
+                                            Processing Timesheet Entry break request... Completed.
+                                        </aura:set>
+                                    </aura:if>
+                                </p>
+                            </aura:set>
+                        </c:aura_BatchProgress>
+                    </div>
+                </lightning:card>
+            </aura:if>
+
+            <aura:if isTrue="{!v.currentStep == 'syncProcess'}">
+                <lightning:card title="Sync to 2c9 Process" class="slds-card_boundary">
+                    <div class="slds-m-horizontal_small">
+                        <c:aura_BatchProgress aura:id="syncProcessor"
+                                              response="{!v.meta.syncResponse}"
+                                              job="{!v.meta.syncJob}"
+                                              wrapTextInLogs="{!true}"
+                                              jobId="{!v.meta.syncResponse.dto.jobId}"
+                                              totalErrors="{!v.meta.syncTotalErrors}"
+                                              onComplete="{!c.handleSyncComplete}">
+
+                            <aura:set attribute="initial">
+                                <c:aura_ScopedNotification>
+                                    Click the button below to start the sync process.
+                                </c:aura_ScopedNotification>
+                                <lightning:button label="Sync" variant="brand" onclick="{!c.handleSync}" disabled="{!v.isBusy}"/>
+                            </aura:set>
+
+                            <aura:set attribute="prePending">
+                                <p>
+                                    <lightning:icon iconName="utility:sync" class="slds-show_inline" size="small"/>
+                                    Processing Timesheet Entry sync request... Please wait a few moments and do not navigate away from this window.
+                                </p>
+                            </aura:set>
+
+                            <aura:set attribute="preSuccess">
+                                <p>
+                                    <aura:if isTrue="{!v.meta.syncTotalErrors}">
+                                        <lightning:icon iconName="utility:info" variant="warning" class="slds-show_inline" size="small"/>
+                                        Processing Timesheet Entry sync request.... Completed with errors!
+                                        <aura:set attribute="else">
+                                            <lightning:icon iconName="utility:success" variant="success" class="slds-show_inline" size="small"/>
+                                            Processing Timesheet Entry sync request... Completed.
+                                        </aura:set>
+                                    </aura:if>
+                                </p>
+                            </aura:set>
+                        </c:aura_BatchProgress>
+                    </div>
+                </lightning:card>
+
+            </aura:if>
+        </div>
+
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!not(equals(v.currentStep, 'generateBatch'))}">
+                <lightning:button label="Previous"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handlePrevious}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+
+            <aura:if isTrue="{!equals(v.currentStep, 'generateBatch')}">
+                <lightning:button label="Next"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleGenerateBatch}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+
+            <aura:if isTrue="{!and(not(equals(v.currentStep, 'syncProcess')), not(equals(v.currentStep, 'generateBatch')))}">
+                <lightning:button label="Next"
+                                  variant="brand"
+                                  type="submit"
+                                  disabled="{!v.isBusy}"
+                                  onclick="{!c.handleNext}"
+                                  class="slds-m-left_x-small"
+                />
+            </aura:if>
+        </aura:set>
+    </c:aura_QuickActionModal>
+
+</aura:component>

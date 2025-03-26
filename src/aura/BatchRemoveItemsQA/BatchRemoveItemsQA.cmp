@@ -1,0 +1,35 @@
+<aura:component description="BatchRemoveItemsQA" implements="force:lightningQuickActionWithoutHeader,force:appHostable" extends="c:aura_Base">
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+    <!-- Libraries -->
+    <c:aura_Utils context="{!this}"/>
+    <c:aura_ModalService aura:id="modalService"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <!-- Content -->
+    <c:aura_QuickActionModal aura:id="modal"
+                             title="Remove Items"
+                             widthPercentage="40"
+                             maxWidthRem="100"
+                             minWidthRem="20"
+                             refreshOnCancel="{!true}"
+                             heightPX="400">
+
+        <div class="slds-m-horizontal_small">
+            <c:aura_ScopedNotification>
+                This action will remove all related Timesheet Entries that are not synced with 2c9.
+            </c:aura_ScopedNotification>
+        </div>
+
+        <aura:set attribute="footer">
+            <lightning:button label="Confirm"
+                              variant="brand"
+                              type="submit"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleConfirm}"
+                              class="slds-m-left_x-small"
+            />
+        </aura:set>
+    </c:aura_QuickActionModal>
+
+</aura:component>

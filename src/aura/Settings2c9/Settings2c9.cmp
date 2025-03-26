@@ -327,7 +327,7 @@
                             </div>
                             <aura:if isTrue="{!equals(v.meta.dto.setting.Is_Merge_Processor_Enabled__c, true)}">
                                 <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
-                                    Merge Threshold:
+                                    Merge Threshold (mins):
                                 </div>
 
                                 <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">

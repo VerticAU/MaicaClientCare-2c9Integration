@@ -21,8 +21,7 @@ public class Tc9GenerateBatchProc extends AbstractProcessor {
                 (batchVar.Include_All__c != true ? 'AND maica_cc__Start_Time__c >= :startDate\n' : '') +
                 'AND maica_cc__End_Time__c <= :endDate\n' +
                 'AND Timesheet_Entry_2C9__c = NULL\n' +
-                'AND Merged_Timesheet_Entry__c = FALSE\n' +
-                'AND (Merge_Target_Timesheet_Entry__c = NULL OR Merge_Target_Timesheet_Entry__r.Timesheet_Entry_2C9__c = NULL)\n';
+                'AND Merge_Target_Timesheet_Entry__r.Timesheet_Entry_2C9__c = NULL\n';
         List<maica_cc__Timesheet_Entry__c> TSEs = Tc9Service.query(soql, new Map<String, Object>{
                 'endDate' => batchVar.End_Date__c,
                 'startDate' => batchVar.Start_Date__c

@@ -1,13 +1,14 @@
 ({
     handleInit: function (cmp, event, helper) {
+        cmp.set('v.hideContentOnBusy', true)
         cmp.doInit({
             batchId: cmp.get('v.recordId'),
-        }).then(function (response) {
+        }).finally(function (response) {
+            cmp.set('v.hideContentOnBusy', false)
         });
     },
 
     handleGenerateBatch: function (cmp, event, helper) {
-        cmp.set('v.isBusy', true);
         cmp.set('v.isBusy', true);
 
         cmp.utils
@@ -27,6 +28,35 @@
             });
     },
 
+    handleMerge: function (cmp, event, helper) {
+        cmp.find('mergeProcessor').process(
+            'Tc9MergeProc', {batchId: cmp.get('v.recordId')}
+        )
+    },
+
+    handleMergeComplete: function (cmp, event, helper) {
+
+    },
+
+    handleBreak: function (cmp, event, helper) {
+        cmp.find('breakProcessor').process(
+            'Tc9BreakProc', {batchId: cmp.get('v.recordId')}
+        )
+    },
+
+    handleBreakComplete: function (cmp, event, helper) {
+
+    },
+
+    handleSync: function (cmp, event, helper) {
+        cmp.find('syncProcessor').process(
+            'Tc9SyncProc', {batchId: cmp.get('v.recordId')}
+        )
+    },
+
+    handleSyncComplete: function (cmp, event, helper) {
+
+    },
 
     handleNext: function (cmp, event, helper) {
         let steps = cmp.get('v.meta.dto.steps');

@@ -9,7 +9,19 @@
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>tc9_et__Allowance_Types</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active Sleepover</fullName>
+                    <default>false</default>
+                    <label>Active Sleepover</label>
+                </value>
+                <value>
+                    <fullName>Inactive Sleepover</fullName>
+                    <default>false</default>
+                    <label>Inactive Sleepover</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -85,6 +97,20 @@
         <type>Time</type>
     </fields>
     <fields>
+        <fullName>Duration_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>(DATETIMEVALUE(maica_cc__End_Time__c) - DATETIMEVALUE(maica_cc__Start_Time__c))*24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Duration (Hours)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Merge_Target_Timesheet_Entry__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <label>Merge Target Timesheet Entry</label>
@@ -126,18 +152,8 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Pending</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Pending</label>
-                </value>
-                <value>
-                    <fullName>Merge Processed</fullName>
-                    <default>false</default>
-                    <label>Merge Processed</label>
-                </value>
-                <value>
-                    <fullName>Merge Failed</fullName>
-                    <default>false</default>
-                    <label>Merge Failed</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>

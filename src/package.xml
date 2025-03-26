@@ -33,7 +33,7 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>maica_cc__Appointment__c.Allowance_Type__c</members>
+        <members>maica_cc__Appointment__c.Type__c</members>
         <members>maica_cc__Timesheet_Entry__c.Allowance_Type__c</members>
         <members>maica_cc__Timesheet_Entry__c.Break_1_Duration__c</members>
         <members>maica_cc__Timesheet_Entry__c.Break_1_End__c</members>
@@ -45,7 +45,7 @@
         <members>maica_cc__Timesheet_Entry__c.Merged_Timesheet_Entry__c</members>
         <members>maica_cc__Timesheet_Entry__c.Sync_Failure_Details__c</members>
         <members>maica_cc__Timesheet_Entry__c.TC9_Sync_Status__c</members>
-        <members>maica_cc__Expense__c.Allowance_Type__c</members>
+        <members>maica_cc__Timesheet_Entry__c.Duration_Hours__c</members>
         <members>maica_cc__Setting__c.Break_Processor_Mode__c</members>
         <members>maica_cc__Setting__c.Default_Award_Classification_Level_ID__c</members>
         <members>maica_cc__Setting__c.Default_Client_Account_ID__c</members>
@@ -63,6 +63,8 @@
         <members>maica_cc__Timesheet_Entry__c.Batch__c</members>
         <members>maica_cc__Timesheet_Entry__c.Merge_Target_Timesheet_Entry__c</members>
         <members>maica_cc__Timesheet_Entry__c.Timesheet_Entry_2C9__c</members>
+        <members>maica_cc__Resource__c.Employee__c</members>
+        <members>maica_cc__Resource__c.Payee__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -82,6 +84,7 @@
     </types>
     <types>
         <members>Batch__c.Sync_to_2c9</members>
+        <members>Batch__c.Remove_Items</members>
         <name>QuickAction</name>
     </types>
     <version>62.0</version>

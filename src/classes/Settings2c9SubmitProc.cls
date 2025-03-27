@@ -13,7 +13,7 @@ public without sharing class Settings2c9SubmitProc extends AbstractProcessor {
         this.request.getMapper().mapToSObject('setting', setting);
         upsert setting;
 
-        List<Employment_Type_Mapping__c> employmentTypeMappings = this.request.getMapper().mapToListSObjects('employmentTypeMappings', Employment_Type_Mapping__c.SObjectType);
-        upsert employmentTypeMappings;
+//        List<Employment_Type_Mapping__c> employmentTypeMappings = this.request.getMapper().mapToListSObjects('employmentTypeMappings', Employment_Type_Mapping__c.SObjectType);
+//        upsert employmentTypeMappings;
     }
 }

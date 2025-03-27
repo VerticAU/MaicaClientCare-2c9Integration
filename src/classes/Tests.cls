@@ -418,8 +418,14 @@ private class Tests {
     @IsTest
     static void coverUtils() {
         Account acc = new Account(Name = 'Test', Type = 'Other', NumberOfEmployees = 10);
-        insert acc;
         Account acc1 = new Account(Name = 'Test1', Type = 'Other', NumberOfEmployees = 11);
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acc.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+            acc1.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+            acc.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acc1.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+        }
+        insert acc;
         insert acc1;
         Utils.picklists.getPicklistAsSetStrings(Account.Type);
         Utils.picklists.convertFlowPicklistFieldValues(acc);
@@ -1421,6 +1427,10 @@ private class Tests {
     static void testSOQLDataTableMetaProc() {
 
         Account acc = new Account(Name = 'TestAccount', Industry = 'Other', AnnualRevenue = 100);
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acc.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+            acc.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+        }
         insert acc;
         Contact ct = new Contact(AccountId = acc.Id, FirstName = 'Test', LastName = 'Test', Email = 'test@test.com',
             MobilePhone = '0411111111', MailingCountry = 'Australia', MailingCity = 'Test', MailingStreet = 'Test');
@@ -1458,6 +1468,13 @@ private class Tests {
 
             Account parentAccount = new Account(Name = 'Parent');
             Account childAccount = new Account(Name = 'Child');
+
+            if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+                parentAccount.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+                childAccount.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+                parentAccount.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+                childAccount.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            }
 
             UnitOfWork uow = new UnitOfWork(new List<SObjectType>{
                     Account.SObjectType

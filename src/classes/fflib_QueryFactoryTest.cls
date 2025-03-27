@@ -307,6 +307,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueriesWithChildRelationship_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -336,6 +340,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueriesWithChildRelationshipNoAccessibleCheck_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -366,6 +374,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueriesWithChildRelationshipObjCheckIsAccessible_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -403,6 +415,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueriesWithChildRelationshipObj_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -440,6 +456,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueriesWithChildRelationshipNoAccessibleCheck_fail() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -470,6 +490,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueries_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -499,6 +523,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQuerySameRelationshipAgain_success() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -535,6 +563,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueries_invalidChildRelationship() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';
@@ -562,6 +594,10 @@ private class fflib_QueryFactoryTest {
     static void addChildQueries_invalidChildRelationshipTooDeep() {
         Account acct = new Account();
         acct.Name = 'testchildqueriesacct';
+        if (Type.forName('Schema.' + 'tc9_et__Timesheet__c') != null) {
+            acct.put('tc9_pr__Maximum_Payment_Distributions__c', '5');
+            acct.put('tc9_pr__Available_Payment_Methods__c', 'Payee Australian Bank;Payee International Bank;Payee Cheque;Payee Cash');
+        }
         insert acct;
         Contact cont = new Contact();
         cont.FirstName = 'test';

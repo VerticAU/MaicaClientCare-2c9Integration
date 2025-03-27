@@ -1,4 +1,4 @@
-public class Tc9GenerateBatchProc extends AbstractProcessor {
+public class Tc9GenerateProc extends AbstractProcessor {
 
     public override Response process(Request request) {
         this.request = request;
@@ -9,6 +9,7 @@ public class Tc9GenerateBatchProc extends AbstractProcessor {
     private void doSubmit() {
         Batch__c batchVar = new Batch__c();
         this.request.getMapper().mapToSObject('batch', batchVar);
+        Utils.objects.throwIfNull(batchVar.Id, 'No Batch is the request.');
         Integer totalTSEs = 0;
         Decimal totalHours = 0;
 

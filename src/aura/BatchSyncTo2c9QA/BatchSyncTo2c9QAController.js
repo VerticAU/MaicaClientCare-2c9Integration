@@ -14,7 +14,7 @@
         cmp.utils
             .executePromise(
                 cmp,
-                'Tc9GenerateBatchProc',
+                'Tc9GenerateProc',
                 {batch: cmp.get('v.meta.dto.batch')}
             )
             .then(response => {

@@ -68,8 +68,8 @@
         <name>CustomField</name>
     </types>
     <types>
-        <members>Settings_2c9</members>
         <members>Batch__c</members>
+        <members>Integration_Settings</members>
         <name>CustomTab</name>
     </types>
     <types>

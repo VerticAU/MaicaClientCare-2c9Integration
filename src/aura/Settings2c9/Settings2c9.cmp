@@ -10,361 +10,365 @@
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
     <c:SettingsMarkup headerIconName="standard:contract_payment" headerText="2c9 Settings" isEdit="{!v.isEdit}">
-<!--        <lightning:card class="slds-card_boundary slds-m-bottom_medium slds-card_title-with-helptext">-->
-<!--            <aura:set attribute="title">-->
-<!--                Static IDs-->
-<!--                <lightning:helptext-->
-<!--                        content="help text"-->
-<!--                />-->
-<!--            </aura:set>-->
+        <!--        <lightning:card class="slds-card_boundary slds-m-bottom_medium slds-card_title-with-helptext">-->
+        <!--            <aura:set attribute="title">-->
+        <!--                Static IDs-->
+        <!--                <lightning:helptext-->
+        <!--                        content="help text"-->
+        <!--                />-->
+        <!--            </aura:set>-->
 
-<!--            <div class="slds-m-horizontal_small">-->
-<!--                <div class="slds-grid slds-gutters slds-m-bottom_medium slds-grid_vertical-align-end slds-wrap">-->
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="account"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Client Account ID"-->
-<!--                                     object="Account"-->
-<!--                                     subtitleField="Phone"-->
-<!--                                     placeholder="Search for an Account"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Client_Account_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--            <div class="slds-m-horizontal_small">-->
+        <!--                <div class="slds-grid slds-gutters slds-m-bottom_medium slds-grid_vertical-align-end slds-wrap">-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="account"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Client Account ID"-->
+        <!--                                     object="Account"-->
+        <!--                                     subtitleField="Phone"-->
+        <!--                                     placeholder="Search for an Account"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Client_Account_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="account"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Employee Account ID"-->
-<!--                                     object="Account"-->
-<!--                                     subtitleField="Phone"-->
-<!--                                     placeholder="Search for an Account"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Employee_Account_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="account"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Employee Account ID"-->
+        <!--                                     object="Account"-->
+        <!--                                     subtitleField="Phone"-->
+        <!--                                     placeholder="Search for an Account"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Employee_Account_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="account"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Payment Entity Account ID"-->
-<!--                                     object="Account"-->
-<!--                                     subtitleField="Phone"-->
-<!--                                     placeholder="Search for an Account"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Payment_Entity_Account_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="account"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Payment Entity Account ID"-->
+        <!--                                     object="Account"-->
+        <!--                                     subtitleField="Phone"-->
+        <!--                                     placeholder="Search for an Account"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Payment_Entity_Account_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="contact"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Timesheet Approver Contact ID"-->
-<!--                                     object="Contact"-->
-<!--                                     placeholder="Search for a Contact"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Timesheet_Approver_Contact_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="contact"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Timesheet Approver Contact ID"-->
+        <!--                                     object="Contact"-->
+        <!--                                     placeholder="Search for a Contact"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Timesheet_Approver_Contact_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="contact"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Client Hiring Manager Contact ID"-->
-<!--                                     object="Contact"-->
-<!--                                     placeholder="Search for a Contact"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Client_Hiring_Manager_Contact_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="contact"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Client Hiring Manager Contact ID"-->
+        <!--                                     object="Contact"-->
+        <!--                                     placeholder="Search for a Contact"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Client_Hiring_Manager_Contact_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom46"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Award Classification Level ID"-->
-<!--                                     object="tc9_et__Award_Classifications_and_Levels__c"-->
-<!--                                     placeholder="Search for an Award Classification and Levels"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Award_Classification_Level_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom46"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Award Classification Level ID"-->
+        <!--                                     object="tc9_et__Award_Classifications_and_Levels__c"-->
+        <!--                                     placeholder="Search for an Award Classification and Levels"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Award_Classification_Level_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom25"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Public Holiday Calendar ID"-->
-<!--                                     object="tc9_pr__Calendar__c"-->
-<!--                                     placeholder="Search for a Calendar"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Public_Holiday_Calendar_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom25"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Public Holiday Calendar ID"-->
+        <!--                                     object="tc9_pr__Calendar__c"-->
+        <!--                                     placeholder="Search for a Calendar"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Public_Holiday_Calendar_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom25"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Timesheet Calendar ID"-->
-<!--                                     object="tc9_pr__Calendar__c"-->
-<!--                                     placeholder="Search for a Calendar"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Timesheet_Calendar_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom25"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Timesheet Calendar ID"-->
+        <!--                                     object="tc9_pr__Calendar__c"-->
+        <!--                                     placeholder="Search for a Calendar"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Timesheet_Calendar_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom2"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Default Schedule ID"-->
-<!--                                     object="tc9_pr__Schedule__c"-->
-<!--                                     placeholder="Search for a Schedule"-->
-<!--                                     value="{!v.meta.dto.setting.Default_Schedule_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom2"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Default Schedule ID"-->
+        <!--                                     object="tc9_pr__Schedule__c"-->
+        <!--                                     placeholder="Search for a Schedule"-->
+        <!--                                     value="{!v.meta.dto.setting.Default_Schedule_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom55"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="KMs Pay Code ID"-->
-<!--                                     object="tc9_pr__Pay_Code__c"-->
-<!--                                     placeholder="Search for a Pay Code"-->
-<!--                                     value="{!v.meta.dto.setting.KMs_Pay_Code_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom55"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="KMs Pay Code ID"-->
+        <!--                                     object="tc9_pr__Pay_Code__c"-->
+        <!--                                     placeholder="Search for a Pay Code"-->
+        <!--                                     value="{!v.meta.dto.setting.KMs_Pay_Code_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
 
-<!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
-<!--                        <c:lwcLookup iconTag="custom55"-->
-<!--                                     isClickable="{!true}"-->
-<!--                                     showRecentRecords="{!true}"-->
-<!--                                     label="Sleepover Pay Code ID"-->
-<!--                                     object="tc9_pr__Pay_Code__c"-->
-<!--                                     placeholder="Search for a Pay Code"-->
-<!--                                     value="{!v.meta.dto.setting.Sleepover_Pay_Code_ID__c}"-->
-<!--                                     showAlRecords="{!true}"-->
-<!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                     limit="2000"-->
-<!--                        />-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </lightning:card>-->
+        <!--                    <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">-->
+        <!--                        <c:lwcLookup iconTag="custom55"-->
+        <!--                                     isClickable="{!true}"-->
+        <!--                                     showRecentRecords="{!true}"-->
+        <!--                                     label="Sleepover Pay Code ID"-->
+        <!--                                     object="tc9_pr__Pay_Code__c"-->
+        <!--                                     placeholder="Search for a Pay Code"-->
+        <!--                                     value="{!v.meta.dto.setting.Sleepover_Pay_Code_ID__c}"-->
+        <!--                                     showAlRecords="{!true}"-->
+        <!--                                     disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                     limit="2000"-->
+        <!--                        />-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </lightning:card>-->
 
-<!--        <lightning:card class="slds-card_boundary slds-m-bottom_medium slds-card_title-with-helptext">-->
-<!--            <aura:set attribute="title">-->
-<!--                Employment Type Mappings-->
-<!--                <lightning:helptext-->
-<!--                        content="help text"-->
-<!--                />-->
-<!--            </aura:set>-->
-<!--            <aura:set attribute="actions">-->
-<!--                <lightning:button label="Add"-->
-<!--                                  variant="brand"-->
-<!--                                  disabled="{!or(not(v.isEdit),v.isBusy)}"-->
-<!--                                  onclick="{!c.handleAddETMClick}"-->
-<!--                />-->
-<!--            </aura:set>-->
+        <!--        <lightning:card class="slds-card_boundary slds-m-bottom_medium slds-card_title-with-helptext">-->
+        <!--            <aura:set attribute="title">-->
+        <!--                Employment Type Mappings-->
+        <!--                <lightning:helptext-->
+        <!--                        content="help text"-->
+        <!--                />-->
+        <!--            </aura:set>-->
+        <!--            <aura:set attribute="actions">-->
+        <!--                <lightning:button label="Add"-->
+        <!--                                  variant="brand"-->
+        <!--                                  disabled="{!or(not(v.isEdit),v.isBusy)}"-->
+        <!--                                  onclick="{!c.handleAddETMClick}"-->
+        <!--                />-->
+        <!--            </aura:set>-->
 
-<!--            <div class="slds-m-horizontal_small">-->
-<!--                <lightning:card class="slds-card_boundary card-without-spaces">-->
-<!--                    <table class="slds-table slds-table_fixed-layout slds-table_bordered">-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th scope="col" class="slds-truncate" style="width:5%">-->
-<!--                                Active-->
-<!--                            </th>-->
-<!--                            <th scope="col" style="width:42%">-->
-<!--                                Employment Type-->
-<!--                            </th>-->
-<!--                            <th scope="col" style="width:43%">-->
-<!--                                Interpretation Rule ID-->
-<!--                            </th>-->
-<!--                            <th scope="col" class="slds-truncate" style="width:5%">-->
-<!--                                Default-->
-<!--                            </th>-->
-<!--                            <th scope="col" class="slds-truncate slds-text-align_right" style="width:5%">-->
-<!--                                Actions-->
-<!--                            </th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        <aura:if isTrue="{!not(empty(v.meta.dto.employmentTypeMappings))}">-->
-<!--                            <aura:iteration items="{!v.meta.dto.employmentTypeMappings}" var="item" indexVar="index">-->
-<!--                                <tr>-->
-<!--                                    <td>-->
-<!--                                        <lightning:input type="toggle"-->
-<!--                                                         label="Active"-->
-<!--                                                         variant="label-hidden"-->
-<!--                                                         messageToggleActive=""-->
-<!--                                                         messageToggleInactive=""-->
-<!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"-->
-<!--                                                         checked="{!item.Active__c}"-->
-<!--                                        />-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        <div style="width: 60%">-->
-<!--                                            <c:lwcSelect label="Employment Type"-->
-<!--                                                         labelHidden="{!true}"-->
-<!--                                                         value="{!item.Employment_Type__c}"-->
-<!--                                                         placeholder="Select an Employment Type"-->
-<!--                                                         options="{!v.meta.selectOptions.employmentTypeOptions}"-->
-<!--                                                         required="{!true}"-->
-<!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"/>-->
-<!--                                        </div>-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        <div style="width: 60%">-->
-<!--                                            <c:lwcLookup iconTag="custom96"-->
-<!--                                                         isClickable="{!true}"-->
-<!--                                                         showRecentRecords="{!true}"-->
-<!--                                                         label="Interpretation Rule"-->
-<!--                                                         labelHidden="true"-->
-<!--                                                         object="tc9_et__Interpretation_Rule__c"-->
-<!--                                                         placeholder="Search for a Interpretation Rule"-->
-<!--                                                         value="{!item.Interpretation_Rule_ID__c}"-->
-<!--                                                         showAlRecords="{!true}"-->
-<!--                                                         required="{!true}"-->
-<!--                                                         disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                                         limit="2000"-->
-<!--                                            />-->
-<!--                                        </div>-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        <lightning:input type="toggle"-->
-<!--                                                         label="Default"-->
-<!--                                                         variant="label-hidden"-->
-<!--                                                         messageToggleActive=""-->
-<!--                                                         messageToggleInactive=""-->
-<!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"-->
-<!--                                                         checked="{!item.Is_Default__c}"-->
-<!--                                        />-->
-<!--                                    </td>-->
-<!--                                    <td class="slds-text-align_right">-->
-<!--                                        <lightning:buttonIcon iconName="utility:delete"-->
-<!--                                                              size="small"-->
-<!--                                                              disabled="{!not(v.isEdit) || v.isBusy}"-->
-<!--                                                              alternativeText="Delete"-->
-<!--                                                              value="{!index}"-->
-<!--                                                              onclick="{!c.handleDeleteETMClick}"-->
-<!--                                        />-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                            </aura:iteration>-->
+        <!--            <div class="slds-m-horizontal_small">-->
+        <!--                <lightning:card class="slds-card_boundary card-without-spaces">-->
+        <!--                    <table class="slds-table slds-table_fixed-layout slds-table_bordered">-->
+        <!--                        <thead>-->
+        <!--                        <tr>-->
+        <!--                            <th scope="col" class="slds-truncate" style="width:5%">-->
+        <!--                                Active-->
+        <!--                            </th>-->
+        <!--                            <th scope="col" style="width:42%">-->
+        <!--                                Employment Type-->
+        <!--                            </th>-->
+        <!--                            <th scope="col" style="width:43%">-->
+        <!--                                Interpretation Rule ID-->
+        <!--                            </th>-->
+        <!--                            <th scope="col" class="slds-truncate" style="width:5%">-->
+        <!--                                Default-->
+        <!--                            </th>-->
+        <!--                            <th scope="col" class="slds-truncate slds-text-align_right" style="width:5%">-->
+        <!--                                Actions-->
+        <!--                            </th>-->
+        <!--                        </tr>-->
+        <!--                        </thead>-->
+        <!--                        <tbody>-->
+        <!--                        <aura:if isTrue="{!not(empty(v.meta.dto.employmentTypeMappings))}">-->
+        <!--                            <aura:iteration items="{!v.meta.dto.employmentTypeMappings}" var="item" indexVar="index">-->
+        <!--                                <tr>-->
+        <!--                                    <td>-->
+        <!--                                        <lightning:input type="toggle"-->
+        <!--                                                         label="Active"-->
+        <!--                                                         variant="label-hidden"-->
+        <!--                                                         messageToggleActive=""-->
+        <!--                                                         messageToggleInactive=""-->
+        <!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"-->
+        <!--                                                         checked="{!item.Active__c}"-->
+        <!--                                        />-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <div style="width: 60%">-->
+        <!--                                            <c:lwcSelect label="Employment Type"-->
+        <!--                                                         labelHidden="{!true}"-->
+        <!--                                                         value="{!item.Employment_Type__c}"-->
+        <!--                                                         placeholder="Select an Employment Type"-->
+        <!--                                                         options="{!v.meta.selectOptions.employmentTypeOptions}"-->
+        <!--                                                         required="{!true}"-->
+        <!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"/>-->
+        <!--                                        </div>-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <div style="width: 60%">-->
+        <!--                                            <c:lwcLookup iconTag="custom96"-->
+        <!--                                                         isClickable="{!true}"-->
+        <!--                                                         showRecentRecords="{!true}"-->
+        <!--                                                         label="Interpretation Rule"-->
+        <!--                                                         labelHidden="true"-->
+        <!--                                                         object="tc9_et__Interpretation_Rule__c"-->
+        <!--                                                         placeholder="Search for a Interpretation Rule"-->
+        <!--                                                         value="{!item.Interpretation_Rule_ID__c}"-->
+        <!--                                                         showAlRecords="{!true}"-->
+        <!--                                                         required="{!true}"-->
+        <!--                                                         disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                                         limit="2000"-->
+        <!--                                            />-->
+        <!--                                        </div>-->
+        <!--                                    </td>-->
+        <!--                                    <td>-->
+        <!--                                        <lightning:input type="toggle"-->
+        <!--                                                         label="Default"-->
+        <!--                                                         variant="label-hidden"-->
+        <!--                                                         messageToggleActive=""-->
+        <!--                                                         messageToggleInactive=""-->
+        <!--                                                         disabled="{!or(not(v.isEdit),v.isBusy)}"-->
+        <!--                                                         checked="{!item.Is_Default__c}"-->
+        <!--                                        />-->
+        <!--                                    </td>-->
+        <!--                                    <td class="slds-text-align_right">-->
+        <!--                                        <lightning:buttonIcon iconName="utility:delete"-->
+        <!--                                                              size="small"-->
+        <!--                                                              disabled="{!not(v.isEdit) || v.isBusy}"-->
+        <!--                                                              alternativeText="Delete"-->
+        <!--                                                              value="{!index}"-->
+        <!--                                                              onclick="{!c.handleDeleteETMClick}"-->
+        <!--                                        />-->
+        <!--                                    </td>-->
+        <!--                                </tr>-->
+        <!--                            </aura:iteration>-->
 
-<!--                            <aura:set attribute="else">-->
-<!--                                <tr>-->
-<!--                                    <td colspan="5" style="text-align: center">-->
-<!--                                        No any Employment Type Mapping-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                            </aura:set>-->
-<!--                        </aura:if>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
+        <!--                            <aura:set attribute="else">-->
+        <!--                                <tr>-->
+        <!--                                    <td colspan="5" style="text-align: center">-->
+        <!--                                        No any Employment Type Mapping-->
+        <!--                                    </td>-->
+        <!--                                </tr>-->
+        <!--                            </aura:set>-->
+        <!--                        </aura:if>-->
+        <!--                        </tbody>-->
+        <!--                    </table>-->
 
-<!--                </lightning:card>-->
-<!--            </div>-->
-<!--        </lightning:card>-->
+        <!--                </lightning:card>-->
+        <!--            </div>-->
+        <!--        </lightning:card>-->
 
         <lightning:card class="slds-card_boundary slds-m-bottom_medium slds-card_title-with-helptext">
             <aura:set attribute="title">
                 Merge Process
                 <lightning:helptext
-                        content="help text"
+                        content="Controls whether Time Sheet Entries (TSEs) with gaps are merged into a single entry."
                 />
             </aura:set>
 
-            <div class="slds-m-horizontal_small">
-                <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_medium">
-                    <div class="slds-col slds-size_4-of-6">
-                        <div class="slds-grid slds-gutters slds-grid_vertical-align-center slds-wrap">
-                            <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
-                                Enable/Disable Process:
-                            </div>
-
-                            <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">
-                                <lightning:input type="toggle"
-                                                 label="Enable/Disable Merge Process"
-                                                 variant="label-hidden"
-                                                 messageToggleActive=""
-                                                 messageToggleInactive=""
-                                                 disabled="{!or(not(v.isEdit),v.isBusy)}"
-                                                 checked="{!v.meta.dto.setting.Is_Merge_Processor_Enabled__c}"
-                                />
-                            </div>
-
-                            <div class="slds-col slds-size_3-of-6 slds-m-bottom_small">
-                            </div>
-                            <aura:if isTrue="{!equals(v.meta.dto.setting.Is_Merge_Processor_Enabled__c, true)}">
-                                <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
-                                    Merge Threshold (mins):
-                                </div>
-
-                                <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
-                                    <lightning:input label="Merge Threshold"
-                                                     type="number"
-                                                     min="0"
-                                                     step="1"
-                                                     value="{!v.meta.dto.setting.Merge_Threshold__c}"
-                                                     variant="label-hidden"
-                                                     required="{!true}"
-                                                     disabled="{!or(not(v.isEdit),v.isBusy)}"
-                                    />
-                                </div>
-
-                                <div class="slds-col slds-size_4-of-6 slds-m-bottom_small">
-                                </div>
-
-                                <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
-                                    Break Processor Mode:
-                                </div>
-
-                                <div class="slds-col slds-size_2-of-6 slds-m-bottom_small">
-                                    <c:lwcSelect label="Break Processor Mode"
-                                                 labelHidden="{!true}"
-                                                 value="{!v.meta.dto.setting.Break_Processor_Mode__c}"
-                                                 placeholder="Select a Break Processor Mode"
-                                                 options="{!v.meta.selectOptions.breakProcessorModeOptions}"
-                                                 required="{!true}"
-                                                 disabled="{!or(not(v.isEdit),v.isBusy)}"
-                                    />
-                                </div>
-
-                                <div class="slds-col slds-size_3-of-6 slds-m-bottom_small">
-                                </div>
-                            </aura:if>
-                        </div>
+            <div class="slds-m-horizontal_medium">
+                <div class="slds-grid slds-grid_vertical-align-center slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                        Enable/Disable Process:
                     </div>
+
+                    <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                        <lightning:input type="toggle"
+                                         label="Enable/Disable Merge Process"
+                                         variant="label-hidden"
+                                         messageToggleActive=""
+                                         messageToggleInactive=""
+                                         disabled="{!or(not(v.isEdit),v.isBusy)}"
+                                         checked="{!v.meta.dto.setting.Is_Merge_Processor_Enabled__c}"
+                        />
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-6 slds-m-bottom_small">
+                    </div>
+                    <aura:if isTrue="{!equals(v.meta.dto.setting.Is_Merge_Processor_Enabled__c, true)}">
+                        <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                            Merge Threshold (mins):
+                            <lightning:helptext
+                                    content="Defines the time gap (in minutes) used by the automation to determine whether consecutive Time Sheet Entries should be merged."
+                            />
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                            <lightning:input label="Merge Threshold"
+                                             type="number"
+                                             min="0"
+                                             step="1"
+                                             value="{!v.meta.dto.setting.Merge_Threshold__c}"
+                                             variant="label-hidden"
+                                             required="{!true}"
+                                             disabled="{!or(not(v.isEdit),v.isBusy)}"
+                            />
+                        </div>
+
+                        <div class="slds-col slds-size_4-of-6 slds-m-bottom_small">
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                            Break Processor Mode:
+                            <lightning:helptext
+                                    content="Determines how breaks are handled when merging Time Sheet Entries (TSEs) where:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    - Fill Gaps: uses time gaps between merged TSEs to populate break fields.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    - Reference Unavailability: uses Unavailability records to determine break durations."
+                            />
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-6 slds-m-bottom_small">
+                            <c:lwcSelect label="Break Processor Mode"
+                                         labelHidden="{!true}"
+                                         value="{!v.meta.dto.setting.Break_Processor_Mode__c}"
+                                         placeholder="Select a Break Processor Mode"
+                                         options="{!v.meta.selectOptions.breakProcessorModeOptions}"
+                                         required="{!true}"
+                                         disabled="{!or(not(v.isEdit),v.isBusy)}"
+                            />
+                        </div>
+
+                        <div class="slds-col slds-size_3-of-6 slds-m-bottom_small">
+                        </div>
+                    </aura:if>
                 </div>
             </div>
         </lightning:card>

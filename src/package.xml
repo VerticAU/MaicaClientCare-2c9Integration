@@ -73,12 +73,10 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Employment_Type_Mapping__c-Employment Type Mapping Layout</members>
         <members>Batch__c-Batch Layout</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>Employment_Type_Mapping__c</members>
         <members>Batch__c</members>
         <name>CustomObject</name>
     </types>
@@ -86,6 +84,10 @@
         <members>Batch__c.Sync_to_2c9</members>
         <members>Batch__c.Remove_Items</members>
         <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Batch_Record_Page</members>
+        <name>FlexiPage</name>
     </types>
     <version>62.0</version>
 </Package>

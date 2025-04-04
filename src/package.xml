@@ -62,7 +62,6 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Batch_Record_Page</members>
         <name>FlexiPage</name>
     </types>
     <types>

@@ -26,7 +26,7 @@
         <name>QuickAction</name>
     </types>
     <types>
-        <members>maica_cc__Appointment__c.Type__c</members>
+        <members>maica_cc__Appointment__c.maica_cc__Type__c</members>
         <members>maica_cc__Timesheet_Entry__c.Allowance_Type__c</members>
         <members>maica_cc__Timesheet_Entry__c.Batch__c</members>
         <members>maica_cc__Timesheet_Entry__c.Break_1_Duration__c</members>
@@ -64,6 +64,11 @@
     <types>
         <members>Batch_Record_Page</members>
         <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>maica_cc__Appointment__c.maica_cc__Appointment</members>
+        <members>maica_cc__Appointment__c.maica_cc__Shift</members>
+        <name>RecordType</name>
     </types>
     <version>62.0</version>
 </Package>

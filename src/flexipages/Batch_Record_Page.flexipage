@@ -211,7 +211,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Tabs</value>
+                    <value>Tabs1</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>tabs</name>
